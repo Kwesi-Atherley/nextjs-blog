@@ -7,7 +7,7 @@ import Date from '../../components/date';
 export async function getStaticProps({ params }) {
   // Add the "await" keyword like this:
   const postData = await getPostData(params.id);
-
+  console.log(postData);
   return {
     props: {
       postData,
@@ -16,7 +16,7 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const paths = getAllPostIds();
+  const paths = await getAllPostIds();
   return {
     paths,
     fallback: false,
